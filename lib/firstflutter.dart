@@ -41,35 +41,34 @@ class TextInputWidget extends StatefulWidget {
 
 class _TextInputWidgetState extends State<TextInputWidget> {
   final controller = TextEditingController();
-  // String text = ""; //3. text u entered pt 3
+  String text = ""; //3. text u entered
 
   void dispose() {
     super.dispose();
     controller.dispose();
   }
 
-  // void ChangeText(text) {
-  //   if (text == "Hello World!") {
-  //     controller.clear();
-  //     text = "";
-  //   } // this if statement basically cleares the text if the text placed here is the same as what the user has inputed
-  //   setState(() {
-  //     this.text = text; //1. this forces the widget to refresh and rebuilt
-  //   });
-  // } pt 3
+  void ChangeText(text) {
+    if (text == "Hello World!") {
+      controller.clear();
+      text = "";
+    } // this if statement basically cleares the text if the text placed here is the same as what the user has entered
+    setState(() {
+      this.text = text; //1. this forces the widget to refresh and rebuilt
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    // return Column(children: <Widget>[ pt 3
-
-      return TextField(
-          controller: this.controller,
-          decoration: InputDecoration(
-              prefixIcon: Icon(Icons.message), labelText: "Type a message:"));
-          // onChanged: (text) => this.ChangeText(text), pt3
-          ),
-      // Text(this.text) //2. redraws the widget with text from no3 pt 3
-    //] );
+    return Column(children: <Widget>[
+      TextField(
+        controller: this.controller,
+        decoration: InputDecoration(
+            prefixIcon: Icon(Icons.message), labelText: "Type a message:"),
+        onChanged: (text) => this.ChangeText(text),
+      ),
+      Text(this.text) //2. redraws the widget with text from no3
+    ]);
   }
 }
 
@@ -81,4 +80,4 @@ class _TextInputWidgetState extends State<TextInputWidget> {
 //       child: Text('Monkuu world'),
 //     );
 //   }
-// } pt 2
+// }
