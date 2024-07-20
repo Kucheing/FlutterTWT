@@ -1,3 +1,4 @@
+import 'package:first_tutorial/myHomePage.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -19,11 +20,13 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  String name;
+  late String name;
   TextEditingController controller = new TextEditingController();
 
   void click() {
     this.name = controller.text;
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => MyHomePage()));
   }
 
   @override
@@ -36,13 +39,13 @@ class _BodyState extends State<Body> {
               controller: this.controller,
               decoration: InputDecoration(
                 prefixIcon: Icon(Icons.person),
-                labelText: "Type Your Name:",
+                labelText: "Type Your Name: ",
                 border: OutlineInputBorder(
                     borderSide: BorderSide(width: 5, color: Colors.pink)),
                 suffixIcon: IconButton(
                   icon: Icon(Icons.done),
                   splashColor: Colors.green,
-                  tooltip: "Subit", //it pops up when u long press
+                  tooltip: "Submit", //it pops up when u long press
                   onPressed: this.click,
                 ),
               ),
