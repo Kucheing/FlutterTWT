@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'post.dart';
 
 class PostList extends StatefulWidget {
   final List<Post> listItems;
