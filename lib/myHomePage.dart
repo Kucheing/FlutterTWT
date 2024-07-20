@@ -4,7 +4,8 @@ import 'postList.dart';
 import 'textInputWidget.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+  final String name;
+  MyHomePage(this.name);
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -15,7 +16,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void newPost(String text) {
     this.setState(() {
-      posts.add(new Post(text, "Faris"));
+      posts.add(new Post(text, widget.name));
     });
   } //callback function. simply changes the text above to basically what we have passed in
 
