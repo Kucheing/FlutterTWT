@@ -25,8 +25,8 @@ class _BodyState extends State<Body> {
 
   void click() {
     this.name = controller.text;
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => MyHomePage()));
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => MyHomePage(this.name)));
   }
 
   @override
