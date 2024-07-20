@@ -4,25 +4,6 @@ void main() {
   runApp(MyApp());
 }
 
-class Post {
-  String body;
-  String author;
-  int likes = 0;
-  bool userLiked = false;
-
-  Post(this.body, this.author);
-
-  void likePost() {
-    this.userLiked = !this.userLiked;
-    if (this.userLiked) {
-      this.likes +=
-          1; //the user likes the post the likes will then increase by 1
-    } else {
-      this.likes -= 1;
-    }
-  }
-}
-
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -38,41 +19,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-//
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  List<Post> posts = [];
-
-  void newPost(String text) {
-    this.setState(() {
-      posts.add(new Post(text, "Faris"));
-    });
-  } //callback function. simply changes the text above to basically what we have passed in
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-            title: Text('Welcome to fariswheel world 🐼🎡;.> ')), //menu bar
-        // body: Text('My name is paris okayh')); //just a text
-        body: Column(children: <Widget>[
-          Expanded(child: PostList(this.posts)),
-          TextInputWidget(this
-              .newPost) // removing allows the type a message to be at the bottom Expanded(child: Te--)
-        ])
-        // body: Row(
-        //   children: <Widget>[TestWidget(), TestWidget(), TestWidget()],
-        );
-  }
-} //the build method
-
-//
 class TextInputWidget extends StatefulWidget {
   final Function(String) callback;
 
@@ -103,9 +49,9 @@ class _TextInputWidgetState extends State<TextInputWidget> {
   // } pt 3
 
   void click() {
-    widget.callback(controller.text);
-    controller.clear();
     FocusScope.of(context).unfocus();
+    controller.clear();
+    widget.callback(controller.text);
   }
 
   @override
