@@ -1,5 +1,6 @@
+import 'package:first_tutorial/login.dart';
 import 'package:flutter/material.dart';
-import 'myHomePage.dart';
+// import 'myHomePage.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.purple,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ), //themeData
-      home: MyHomePage(),
+      home: LoginPage(),
     );
   }
 }
