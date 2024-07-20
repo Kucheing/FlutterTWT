@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'post.dart';
+import 'postList.dart';
+import 'textInputWidget.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
